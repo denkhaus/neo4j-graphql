@@ -1,5 +1,5 @@
 package org.neo4j.graphql
-
+import java.time.ZonedDateTime
 import java.util.*
 
 /**
@@ -72,6 +72,7 @@ class MetaData(label: String) {
             fun typeName(type: Class<*>): String {
                 if (type.isArray) return typeName(type.componentType)
                 if (type == String::class.java) return "String"
+                if (type == ZonedDateTime::class.java) return "DateTime"
                 if (type == Boolean::class.java || type == Boolean::class.javaObjectType) return "Boolean"
                 if (Number::class.java.isAssignableFrom(type) || type.isPrimitive) {
                     if (type == Double::class.java || type == Double::class.javaObjectType || type == Float::class.java || type == Float::class.javaObjectType) return "Float"

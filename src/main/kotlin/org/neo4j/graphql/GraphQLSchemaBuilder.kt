@@ -14,7 +14,9 @@ import org.neo4j.graphdb.Node
 import org.neo4j.graphql.CypherGenerator.Companion.DEFAULT_CYPHER_VERSION
 import org.neo4j.graphql.CypherGenerator.Companion.formatAnyValue
 import org.neo4j.helpers.collection.Iterators
+import java.time.ZonedDateTime
 import java.util.*
+
 
 class GraphQLSchemaBuilder(val metaDatas: Collection<MetaData>) {
 
@@ -468,6 +470,7 @@ class GraphQLSchemaBuilder(val metaDatas: Collection<MetaData>) {
             "Float" -> GraphQLFloat
             "Long" -> GraphQLLong
             "Int" -> GraphQLInt
+            "DateTime" -> GraphQLDateTime
             else -> throw IllegalArgumentException("Unknown field type " + type)
         }
     }
